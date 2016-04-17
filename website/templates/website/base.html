@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='UTF-8'>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial scale=1">
+        {% load staticfiles %}
+        <link rel="stylesheet" type="text/css" href="{% static 'website/style.css' %}" />
+        <link href='https://fonts.googleapis.com/css?family=Libre+Baskerville:400italic,400' rel='stylesheet' type='text/css'>
+        <title>{% block title %}{{ page.title }}{% endblock %}</title>
+    </head>
+    <body>
+        {% include "website/header.html" %}
+        {% block header %}
+        {% endblock %}
+        <div class="container">
+            {% block container %}
+
+            {% endblock %}
+            
+
+        </div>
+
+        {% include "website/footer.html" %}
+        {% block footer %}
+
+        {% endblock %}
+    </body>
+
+</html>

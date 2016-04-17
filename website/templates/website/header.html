@@ -1,0 +1,26 @@
+
+{% block header %}
+
+
+<div class="header">
+    <div class="logo">
+        <img src="{#% static logoPath %#}">
+    </div>
+    
+
+
+    <div class="menu">
+
+    {% for item in menu %}
+        <a href="{% url item.page.title %}"> {{ item.page.title }} </a>
+    {% endfor %}
+    
+
+    </div>
+
+
+</div>
+
+
+{% endblock %}
+

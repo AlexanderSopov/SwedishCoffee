@@ -1,0 +1,20 @@
+
+{% extends "website/base.html" %}
+{% load staticfiles %}
+
+
+{% block container %}
+    {% for project in projects %}
+    	<div class="projectThumb">
+    		<img src="{% static project.imgUrl %}">
+			<div class ="projectIngress">
+				<h1>
+					{{ project.title }}
+				</h1>
+				<p>
+					{{ project.introduction }}
+				</p>
+			</div>
+    	</div>
+    {% endfor %}
+{% endblock %}
