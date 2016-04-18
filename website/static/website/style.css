@@ -6,10 +6,10 @@ body{
 }
 
 .header{
-    position: absolute;
-    width:100%;
+    position: relative;
     top:0px;
-    left:0px;
+    left: 0px;
+    width:100%;
     background-color: black;
     min-height: 100px;
 }
@@ -18,19 +18,25 @@ body{
 .menu{
     text-align: right;
     position: absolute;
-    bottom:20px;
+    bottom:10px;
     right: 50px;
+}
+
+.menu li{
+    text-decoration: none;
+    float:left;
+    margin:15px;
 }
 
 .menu a{
     color:white;
     text-decoration: none;
+    font-size: 1.5em;
 }
 
 
 .container{
     width:100%;
-    margin-top:110px;
     margin-left:auto;
     margin-right:auto;
     display: flex;
@@ -54,30 +60,19 @@ body{
     height:100%;
 }
 
+
 .projectIngress{
+    background-color: rgba(0,5,5,0.65);
     position:relative;
     left:0px;
     top:0px;
     padding-left: 20px;
     padding-right: 20px;
-    padding-top: 300px;
+    padding-top:120px;
+    z-index: 100;
     text-align: center;
     height: 100%;
-    background-color: none ;
     color:white;
-    z-index: 100;
-}
-@keyframes moveText {
-    from {padding-top:300px;}
-    to {padding-top:150px;}
-}
-
-.projectIngress:hover{
-    background-color: rgba(0,5,5,0.3);
-    color:white;
-    animation-name: moveText;
-    animation-duration: 0.8s;
-    padding-top:150px;
 }
 
 .projectIngress h1{
@@ -93,10 +88,11 @@ body{
 }
 
 .footer div{
-    width:190px;
-    margin:auto;
+    max-width: 300px;
     position: relative;
-    top:50%;
+    top:45%;
+    text-align: center;
+    margin:auto;
 }
 
 @media screen and (min-width: 426px){
@@ -109,12 +105,91 @@ body{
     .projectThumb{
         width: 33.333%;
     }
+
+    .projectIngress{
+        padding-top: 300px;
+        animation-name: moveTextDown;
+        animation-duration: .15s;
+        padding-top:300px;
+        background-color: rgba(0,5,5,0.0);
+
+    }
+    
+    .projectIngress:hover{
+        top:0px;
+        animation-name: moveText;
+        animation-duration: 0.55s;
+        padding-top:120px;
+        background-color: rgba(0,5,5,0.65);
+    }
+
+
+    .projectThumb:hover img{
+        animation-name:zoomImg;
+        animation-duration: 0.55s;
+        top: -10px;
+        left: -10px;
+        height:110%;
+    }
+
+    .projectThumb img{
+        animation-name: zoomOutImg;
+        animation-duration: .55s;
+        top: 0px;
+        left: 0px;
+        height:100%;
+    }
 }
 
 
-@media screen and (min-width: 1240px){
+@media screen and (min-width: 1920px){
     .container{
-        width: 1240px;
+        width: 1920px;
+    }
+}
+
+
+
+/*
+*
+*       ANIMATIONS
+*
+*/
+
+
+@keyframes moveText {
+    from {padding-top:300px;
+    background-color: rgba(0,5,5,0.0);}
+    to {padding-top:120px;
+    background-color: rgba(0,5,5,0.65);}
+}
+@keyframes moveTextDown {
+    from {padding-top:150px;
+    background-color: rgba(0,5,5,0.65);}
+    to {padding-top:300px;
+    background-color: rgba(0,5,5,0.0);}
+}
+@keyframes zoomImg{
+    from{   
+        top: 0px;
+        left: 0px;
+        height:100%;
+    }to{    
+        top: -10px;
+        left: -10px;
+        height:110%;
+    }
+}
+
+@keyframes zoomOutImg{
+    from{    
+        top: -10px;
+        left: -10px;
+        height:110%;
+    }to{   
+        top: 0px;
+        left: 0px;
+        height:100%;
     }
 }
 

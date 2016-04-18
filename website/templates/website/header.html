@@ -10,11 +10,14 @@
 
 
     <div class="menu">
+	    <ul>
 
-    {% for item in menu %}
-        <a href="{% url item.page.title %}"> {{ item.page.title }} </a>
-    {% endfor %}
-    
+		    {% for item in menu %}
+		        <li>
+		        	<a href="{% url item.page.title %}"> {{ item.page.title }} </a>
+	        	</li>
+		    {% endfor %}
+		</ul>	    
 
     </div>
 

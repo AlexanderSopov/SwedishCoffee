@@ -1,0 +1,30 @@
+
+{% extends "website/base.html" %}
+{% load staticfiles %}
+
+
+{% block container %}
+	<h1>
+		{{ headline }}
+	</h1>
+	<p>
+		{{ introAbout }}
+	</p>
+    {% for paragraph in paragraphs %}
+    	{% cycle 'imgLeft' 'imgRight' as imgClass silent %}
+    	{% cycle 'pRight' 'pLeft' as paraClass silent %}
+    	<div class="aboutRow">
+    		<div class = "{{ imgClass }}">
+    			<img src="{% static paragraph.imgUrl %}">
+    		</div>
+			<div class ="{{ paraClass }}">
+				<h1>
+					{{ paragraph.title }}
+				</h1>
+				<p>
+					{{ paragraph.text }}
+				</p>
+			</div>
+    	</div>
+    {% endfor %}
+{% endblock %}
