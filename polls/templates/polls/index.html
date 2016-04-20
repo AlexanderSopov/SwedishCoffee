@@ -1,0 +1,40 @@
+
+{% extends "polls/base.html" %}
+{% load staticfiles %}
+
+{% block title %}Polls/index{% endblock %}
+
+<div style="width:100%;height:250px; overflow:hidden;">
+    <img src="{% static 'polls/images/background.png' %}" style="width:100%; height: auto;">
+</div>
+
+{% block header %}
+    <h1>Polls</h1>
+{% endblock %}
+{% block container %}
+    <div class="content">
+
+        {% if latest_question_list %}
+
+            {% for question in latest_question_list %}
+                <p><a href="/polls/{{ question.id }}/">{{ question.question_text }}</a></p>
+            {% endfor %}
+        {% else %}
+            <p>No polls are available.</p>
+        {% endif %}
+    </div>
+{% endblock %}
+
+
+{% block lAction %}
+    <a class="actionButton lbutton" href="http://www.google.com">
+            Exit Polls
+    </a>
+{% endblock %}
+{% block rAction %}
+    <a class="actionButton rbutton" href="/polls/create">
+        <div class="">
+            Create a poll
+        </div>
+    </a>
+{% endblock %}

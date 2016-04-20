@@ -19,5 +19,6 @@ from website import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r"", include('website.url'))
+    url(r"", include('website.urls')),
+    url(r"polls/", include('polls.urls'))
 ]

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='UTF-8'>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial scale=1">
+        {% load staticfiles %}
+        <link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}" />
+        <link href='https://fonts.googleapis.com/css?family=Libre+Baskerville:400italic,400' rel='stylesheet' type='text/css'>
+        <title>{% block title %}Polls{% endblock %}</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="header"><img src="{% static 'polls/images/background.png' %}">
+                <div class="headerh1">
+                    {% block header %}
+
+                    {% endblock %}
+                </div>
+            </div>
+
+            {% block container %}
+
+            {% endblock %}
+            <div class="actionButtonCont">
+                {% block lAction %}
+                    <a class="actionButton lbutton" href="{% url 'polls:index' %}">
+                        <div>
+                            Back to Polls
+                        </div>
+                    </a>
+                {% endblock %}
+                {% block rAction %}
+                {% endblock %}
+
+            </div>
+        </div>
+    </body>
+
+</html>
