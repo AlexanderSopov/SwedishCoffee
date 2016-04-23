@@ -7,23 +7,27 @@
 	    <div class="logo">
 	        <img src="{% static logoPath %}">
 	    </div>
-	    
-
-
-	    <div class="menu">
+	   
+	    <nav id="menu">
 		    <ul>
 
 			    {% for item in menu %}
 			        <li>
-			        	<a href="{% url item.page.title %}"> {{ item.page.title }} </a>
+			        	<a href="{% url item.page.url %}"> {{ item.page.title }} </a>
 		        	</li>
 			    {% endfor %}
 			</ul>	    
+	    </nav>
 
-	    </div>
+	    <div id="hamburger">
+	        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+	          <path d="M2 6h20v3H2zm0 5h20v3H2zm0 5h20v3H2z"></path>
+	        </svg>
+      	</div>
 
 
 	</div>
+
 
 
 {% endblock %}
