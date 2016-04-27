@@ -1,0 +1,22 @@
+
+{% extends "website/base.html" %}
+{% load staticfiles %}
+
+
+{% block container %}
+    {% for entry in entries %}
+	    	<div class="entry">
+	    		<img src="{% static entry.imgUrl %}">
+				<div class ="entryHeadline">
+					<h1>
+						{{ entry.headline }}
+					</h1>
+				</div>
+				<div class="entryText">
+					<p>
+						{{ entry.body_text }}
+					</p>
+				</div>
+	    	</div>
+    {% endfor %}
+{% endblock %}

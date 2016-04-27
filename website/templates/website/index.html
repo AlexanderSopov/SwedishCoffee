@@ -5,7 +5,7 @@
 
 {% block container %}
     {% for project in projects %}
-	    	<div class="projectThumb" onclick="window.location='{% url project.page.url %}';">
+	    	<div class="projectThumb" onclick="window.location='/projects/{{ project.page.id }}/';">
 	    		<img src="{% static project.imgUrl %}">
 				<div class ="projectIngress">
 					<h1>

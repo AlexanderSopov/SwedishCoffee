@@ -87,6 +87,32 @@ nav a{
 }
 
 
+.entry {
+    background-color: white;
+    width:100%;
+    height:auto;
+    display:flex;
+    flex-wrap:wrap;
+    padding:10px;
+}
+
+.entry img{
+    width:100%;
+    order:2;
+}
+
+.entryHeadline {
+    width:100%;
+    order:1;
+}
+
+.entryText {
+    text-align: justify;
+    width: 100%;
+    order:3;
+}
+
+
 .projectThumb{
     position:relative;
     top:0px;
@@ -148,11 +174,29 @@ nav a{
     .logo img{
         margin-left:40px;
     }
+
+
+    .entry img{
+        width:25%;
+        height:25%;
+        order:0;
+    }
+
+    .entryHeadline {
+        width:75%;
+    }
+
 }
 
 @media screen and (min-width: 769px){
     #hamburger{
         display:none;
+    }
+
+
+    .entry {
+        width:60%;
+        margin:auto;
     }
 
     nav{
@@ -189,7 +233,7 @@ nav a{
         margin-top:0px;
         padding-top: 0px;
     }
-    
+
     .projectIngress:hover{
         cursor:pointer;
         top:0px;
@@ -246,11 +290,11 @@ nav a{
     background-color: rgba(0,5,5,0.0);}
 }
 @keyframes zoomImg{
-    from{   
+    from{
         top: 0px;
         left: 0px;
         height:100%;
-    }to{    
+    }to{
         top: -10px;
         left: -10px;
         height:110%;
@@ -258,11 +302,11 @@ nav a{
 }
 
 @keyframes zoomOutImg{
-    from{    
+    from{
         top: -10px;
         left: -10px;
         height:110%;
-    }to{   
+    }to{
         top: 0px;
         left: 0px;
         height:100%;

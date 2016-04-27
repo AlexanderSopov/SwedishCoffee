@@ -12,6 +12,8 @@ app_name = "website"
 urlpatterns = [
 	# ex: /
     url(r'^$', views.index, name='index'),
+    # ex: /projects/4
+    url(r'^projects/(?P<pk>[0-9]+)/', views.projectPage, name="projectPage"),
     # ex: /projects/
     url(r'^projects/', views.projects, name="projects"),
     # ex: /about/
