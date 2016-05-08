@@ -23,8 +23,11 @@ from polls import views
 urlpatterns = [
 	# ex: /admin/
     url(r'^admin/', admin.site.urls),
-    # ex: /polls    
+    url(r'^admin', admin.site.urls),
+    # ex: /polls
     url(r"polls/", include('polls.urls')),
+    url(r"polls", include('polls.urls')),
     # ex: /
-    url(r"", include('website.urls'))
+    url(r"", include('website.urls')),
+    url(r'^tinymce/', include('tinymce.urls'))
 ]
