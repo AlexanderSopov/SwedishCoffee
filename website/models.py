@@ -35,7 +35,7 @@ class Author(models.Model):
 class Entry(models.Model):
 	page = models.ForeignKey(Page)
 	headline = models.CharField(max_length=100)
-	body_text = tinymce_models.HTMLField()
+	body_text = models.TextField() #tinymce_models.HTMLField()
 	pub_date = models.DateField()
 	mod_date = models.DateField()
 	authors = models.ManyToManyField(Author)
