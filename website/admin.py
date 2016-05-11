@@ -5,6 +5,7 @@ from django import forms
 
 from .models import Page, MenuItem, Projects, Author, Entry
 # Register your models here.
+# Minor change to be pushed
 
 
 
