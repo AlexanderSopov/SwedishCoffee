@@ -16,16 +16,13 @@ urlpatterns = [
     url(r'^projects/(?P<pk>[0-9]+)/', views.projectPage, name="projectPage"),
     # ex: /projects/
     url(r'^projects/', views.projects, name="projects"),
-    # ex: /about/
-    url(r'^', views.index, name="about"),
     # /Blog/
-    url(r'^ppr/', views.index, name="ppr"),
-    # /Blog/
-    url(r'^blog/', views.index, name="blog"),
-    # /Blog/
-    url(r'^dumbit/', views.index, name="dumbit"),
-    # /Blog/
-    url(r'^lastrafik/', views.index, name="lastrafik"),
-    # /Blog/
-    url(r'^stub/', views.index, name="stub")
+    url(r'^blog/', views.blog, name="blog"),
+    # /Blog/4/
+    url(r'^blog/(?P<pk>[0-9]+)/', views.blog, name="blogEntry"),
+    # /about/
+    url(r'^about/', views.about, name="about"),
+    # /about/
+    url(r'^about', views.about)
+
 ]
