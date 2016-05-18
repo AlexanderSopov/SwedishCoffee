@@ -4,7 +4,9 @@
 
 {% block container %}
 	    	<div class="entry">
-	    		<img src="{% static entry.imgUrl %}">
+	    		<div class="entryImg">
+	    			<img src="{% static entry.imgUrl %}">
+	    		</div>
 				<div class ="entryHeadline">
 					<h1>
 						{{ entry.headline }}

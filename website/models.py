@@ -58,9 +58,11 @@ class Page(models.Model):
 defaultPage = Page(title="Default", url="whatever")
 
 
+
 class ProjectPage(Page):
 	headline = models.CharField(max_length=100)
 	body_text = models.TextField()
+
 
 class Projects(models.Model):
 	imgUrl = models.CharField(max_length=100)
