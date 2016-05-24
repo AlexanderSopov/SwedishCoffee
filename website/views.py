@@ -1,14 +1,16 @@
 from django.shortcuts import render, get_object_or_404, get_list_or_404
 from django.http import HttpResponse
 from .models import MenuItem, Projects, Page, Entry
+from django.db.models import F
+from .forms import EmailForm
 # Create your views here.
-
 
 
 # Base Context for static parts of the website.
 #In other words: parts of the site that don't vary
 baseContext = {"menu": get_list_or_404(MenuItem, ),
-		"logoPath":"website/images/coffe_cup.png"}
+		"logoPath":"website/images/coffe_cup.png",
+		"form": EmailForm()}
 
 
 
@@ -44,13 +46,13 @@ def about(request):
 
 def blog(request):
 	blogPage = get_object_or_404(Page, title="Blog")
-	entries = get_list_or_404(Entry, page=blogPage.id)
+	entries = get_list_or_404(Entry.objects.order_by(F('pub_date').desc()), )# page=blogPage.id ) # erase the first hashtag and the closing paranthese to filter for entries who are connected to the blog
 	return render(request, "website/blog.html", {**{
 		"entries": entries
 	}, **baseContext} )
 
 def blogEntry(request, pk):
-	entry = get_object_or_404(Page, id=pk)
+	entry = get_object_or_404(Entry, id=pk)
 	return render(request, "website/blogEntry.html", {**{
 			"entry":entry
 		}, **baseContext})
@@ -62,3 +64,5 @@ def projectPage(request, pk):
 		"entries":entries,
 		"page":page
 		},**baseContext})
+
+	

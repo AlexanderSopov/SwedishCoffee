@@ -17,9 +17,9 @@ urlpatterns = [
     # ex: /projects/
     url(r'^projects/', views.projects, name="projects"),
     # /Blog/
-    url(r'^blog/', views.blog, name="blog"),
+    url(r'^blog/$', views.blog, name="blog"),
     # /Blog/4/
-    url(r'^blog/(?P<pk>[0-9]+)/', views.blog, name="blogEntry"),
+    url(r'^blog/(?P<pk>[0-9]+)/', views.blogEntry, name="blogEntry"),
     # /about/
     url(r'^about/', views.about, name="about"),
     # /about/

@@ -7,24 +7,26 @@ body{
 }
 
 .header{
-    position: relative;
+    position: fixed;
     top:0px;
     left: 0px;
     width:100%;
-    background-color: black;
+    background-color: rgb(30,30,30);
     height: 120px;
+    z-index: 10;
+    margin:0px;
 }
 
 .logo{
-    overflow: visible;
-    height:100%;
+    position:relative;
+    top:20px;
+    height:80px;
+    margin:0px;
 }
 
 .logo img{
-    height:80px;
+    height:100%;
     width:auto;
-    margin-top:20px;
-    margin-left:20px;
 }
 
 
@@ -44,20 +46,20 @@ body{
 
 
 nav {
-    width: 300px;
-    height: 100%;
-    background-color:black;
+    width: 100%;
+    height: 200px;
+    background-color:rgb(30,30,30);
     position: fixed;
-    z-index: 100;
+    z-index: 5;
     /* This trasform moves the drawer off canvas. */
-    -webkit-transform: translate(-300px, 0);
-    transform: translate(-300px, 0);
+    -webkit-transform: translate(0,-300px);
+    transform: translate(0, -300px);
     /* Optionally, we animate the drawer. */
     transition: transform 0.3s ease;
 }
 nav.open {
-    -webkit-transform: translate(0, 0);
-    transform: translate(0, 0);
+    -webkit-transform: translate(0, 40px);
+    transform: translate(0, 40px);
 }
 
 nav li{
@@ -79,6 +81,8 @@ nav a{
 
 
 .container{
+    position: relative;
+    top:120px;
     min-height:500px;
     width:100%;
     margin-left:auto;
@@ -93,19 +97,29 @@ nav a{
     margin:auto;
     margin-top:10px;
     margin-bottom:20px;
+    border-radius: 5px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    background-color: rgba(250,250,250,1);;
+    background-color: rgb(250,250,250);
     display:flex;
     flex-wrap:wrap;
 }
 
-.entryImg img{
+.date{
     width:100%;
-}
-.entryImg{
     padding:10px;
+    height:30px;
+    border-bottom: 1px solid black;
+}
+
+
+.entryImg{
     width:100%;
     order:2;
+}
+
+
+.entryImg img{
+    width:100%;
 }
 
 .entryHeadline {
@@ -127,27 +141,27 @@ nav a{
     top:0px;
     left:0px;
     width:100%;
-    height:300px;
+    height:400px;
     overflow:hidden;
 }
 
 .projectThumb img{
     position: absolute;
-    top: 0px;
-    left: 0px;
-    height:100%;
+    top: -80px;
+    left: -150px;
+    height: calc(100% + 80px);
 }
 
 
 .projectIngress{
-    background-color: rgba(0,5,5,0.80);
+    background-color: rgba(40,40,40,0.85);
     position:absolute;
     left:0px;
     bottom:0px;
     padding-left: 20px;
     padding-right: 20px;
-    z-index: 99;
-    height: 35%;
+    z-index: 3;
+    height: 45%;
     color:white;
 }
 
@@ -161,17 +175,55 @@ nav a{
     font-size: 1em;
 }
 
+.emailFooter{
+    width:100%;
+    height: 150px;
+    border-top: 1px solid black;
+    color:white;
+    background-color: rgba(50,50,50,0.8);
+    position:relative;
+    top:120px;
+}
+
+.emailFooter form{
+    position:relative;
+    left:calc(50% - 21%);
+    top: calc(50% - 25px);
+}
+
+.emailFooter button{
+    font-size: 1.2em;
+    width: 10%;
+    height:55px;
+    margin:0px;
+    margin-left:2%;
+    padding:10px;
+}
+
+.emailFooter input{
+    width: 30%;
+    height:45px;
+    margin:0px;
+    padding:10px;
+    font-size: 1.2em;
+}
+
+
 .footer{
-    background-color: black;
-    height:100px;
+    position: relative;
+    top: 120px;
+    background-color: rgb(30,30,30);
+    height:60px;
     width:100%;
     color:white;
 }
 
 .footer div{
-    max-width: 300px;
+    font-size: 14px;
+    color: rgb(180,180,180);
+    max-width: 50%;
     position: relative;
-    top:45%;
+    top:35%;
     text-align: center;
     margin:auto;
 }
@@ -199,10 +251,11 @@ nav a{
 }
 
 @media screen and (min-width: 769px){
+
+
     #hamburger{
         display:none;
     }
-
 
     .entry {
         width:75%;
@@ -213,7 +266,9 @@ nav a{
         width: auto;
         height: auto;
         position: absolute;
-        right:-250px;
+        -webkit-transform: translate(0,0);
+        transform: translate(0, 0);
+        right:20px;
         bottom:10px;
     }
 
@@ -221,6 +276,7 @@ nav a{
         display: inline;
         float:left;
     }
+
     .projectThumb{
         width: 33.333%;
     }
@@ -229,10 +285,9 @@ nav a{
         position: relative;
         top:0px;
         height: 100%;
-        padding-top: 300px;
+        padding-top: 400px;
         animation-name: moveTextDown;
         animation-duration: .15s;
-        padding-top:300px;
         text-align: center;
         background-color: rgba(0,5,5,0.0);
     }
@@ -248,32 +303,49 @@ nav a{
         top:0px;
         animation-name: moveText;
         animation-duration: 0.35s;
-        padding-top:120px;
+        padding-top:200px;
         background-color: rgba(0,5,5,0.80);
     }
 
+     .projectThumb img{
+        animation-name:zoomOutImg1;
+        animation-duration: 0.55s;
+        top: -5px;
+        left: -100px;
+        height: calc(100% + 5px);
+    }
 
     .projectThumb:hover img{
-        animation-name:zoomImg;
+        animation-name:zoomImg1;
         animation-duration: 0.55s;
-        top: -10px;
-        left: -10px;
-        height:110%;
+        top: -40px;
+        left: -150px;
+        height: calc(100% + 40px);
     }
 
-    .projectThumb img{
-        animation-name: zoomOutImg;
-        animation-duration: .55s;
-        top: 0px;
-        left: 0px;
-        height:100%;
-    }
+
 }
 
 @media screen and (min-width: 1024px){
 
     .entry {
         width:60%;
+    }
+
+    .projectThumb img{
+        animation-name:zoomOutImg;
+        animation-duration: 0.55s;
+        top: 0px;
+        left: 0px;
+        height:100%;
+    }
+
+    .projectThumb:hover img{
+        animation-name:zoomImg;
+        animation-duration: 0.55s;
+        top: -10px;
+        left: -10px;
+        height:calc(110% + 10px);
     }
 }
 
@@ -293,17 +365,45 @@ nav a{
 
 
 @keyframes moveText {
-    from {padding-top:300px;
+    from {padding-top:400px;
     background-color: rgba(0,5,5,0.0);}
-    to {padding-top:120px;
+    to {padding-top:200px;
     background-color: rgba(0,5,5,0.80);}
 }
 @keyframes moveTextDown {
-    from {padding-top:150px;
+    from {padding-top:200px;
     background-color: rgba(0,5,5,0.80);}
-    to {padding-top:300px;
+    to {padding-top:400px;
     background-color: rgba(0,5,5,0.0);}
 }
+
+
+@keyframes zoomImg1{
+    from{
+        top: -5px;
+        left: -100px;
+        height: calc(100% + 5px);
+    }to{
+        top: -40px;
+        left: -150px;
+        height: calc(100% + 40px);
+    }
+}
+
+@keyframes zoomOutImg1{
+    from{
+        top: -40px;
+        left: -150px;
+        height: calc(100% + 40px);
+    }to{
+        top: -5px;
+        left: -100px;
+        height: calc(100% + 5px);
+    }
+}
+
+
+
 @keyframes zoomImg{
     from{
         top: 0px;
@@ -312,7 +412,7 @@ nav a{
     }to{
         top: -10px;
         left: -10px;
-        height:110%;
+        height:calc(110% + 10px);
     }
 }
 
@@ -320,7 +420,7 @@ nav a{
     from{
         top: -10px;
         left: -10px;
-        height:110%;
+        height:calc(110% + 10px);
     }to{
         top: 0px;
         left: 0px;
