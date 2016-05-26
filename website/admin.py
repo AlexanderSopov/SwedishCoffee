@@ -3,7 +3,7 @@ from tinymce.widgets import TinyMCE
 from django import forms
 
 
-from .models import Page, MenuItem, Projects, Author, Entry
+from .models import Page, MenuItem, Projects, Author, Entry, EmailContact
 # Register your models here.
 # Minor change to be pushed
 
@@ -21,4 +21,5 @@ admin.site.register(Page)
 admin.site.register(MenuItem)
 admin.site.register(Projects)
 admin.site.register(Author)
+admin.site.register(EmailContact)
 admin.site.register(Entry, EntryAdmin)
