@@ -45,7 +45,8 @@ class Entry(models.Model):
 	def __str__(self):
 		return self.headline
 
-
+class emailContact(models.Model):
+	customerEmail = models.EmailField(max_length=254)
 
 '''
 class Page(models.Model):

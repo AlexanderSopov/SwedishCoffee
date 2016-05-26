@@ -297,7 +297,7 @@ nav a{
         height: 100%;
         padding-top: 400px;
         animation-name: moveTextDown;
-        animation-duration: .50s;
+        animation-duration: 0.5s;
         text-align: center;
         background-color: rgba(0,5,5,0.0);
     }
@@ -312,14 +312,14 @@ nav a{
         cursor:pointer;
         top:0px;
         animation-name: moveText;
-        animation-duration: 0.385s;
+        animation-duration: 0.4s;
         padding-top:200px;
         background-color: rgba(0,5,5,0.80);
     }
 
      .projectThumb img{
         animation-name:zoomOutImg1;
-        animation-duration: 0.55s;
+        animation-duration: 0.4s;
         top: -5px;
         left: -100px;
         height: calc(100% + 5px);
@@ -327,7 +327,7 @@ nav a{
 
     .projectThumb:hover img{
         animation-name:zoomImg1;
-        animation-duration: 0.55s;
+        animation-duration: 0.5s;
         top: -40px;
         left: -150px;
         height: calc(100% + 40px);
@@ -347,7 +347,7 @@ nav a{
 
     .projectThumb img{
         animation-name:zoomOutImg;
-        animation-duration: 0.55s;
+        animation-duration: 0.4s;
         top: 0px;
         left: 0px;
         height:100%;
@@ -355,7 +355,7 @@ nav a{
 
     .projectThumb:hover img{
         animation-name:zoomImg;
-        animation-duration: 0.55s;
+        animation-duration: 0.5s;
         top: -10px;
         left: -10px;
         height:calc(110% + 10px);

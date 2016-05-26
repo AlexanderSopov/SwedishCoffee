@@ -15,6 +15,8 @@ baseContext = {"menu": get_list_or_404(MenuItem, ),
 
 
 def index(request):
+	if request.method == "POST":
+		print("nice, this works")
 	page = get_object_or_404(Page, title="Swedish Coffee")
 	projects = get_list_or_404(Projects)
 	context = {
@@ -65,4 +67,3 @@ def projectPage(request, pk):
 		"page":page
 		},**baseContext})
 
-	
