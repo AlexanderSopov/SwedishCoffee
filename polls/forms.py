@@ -5,4 +5,12 @@ from .models import Question, Choice
 class QuestionForm(forms.ModelForm):
     class Meta:
         model = Question
-        fields =['question_text', 'choice_text']
+        fields =['question_text']
+
+class ChoiceForm(forms.ModelForm):
+    class Meta:
+        model = Choice
+        fields = ['choice_text']
+
+ChoiceFormSet = forms.inlineformset_factory(Question, Choice,
+    fields=('choice_text',))

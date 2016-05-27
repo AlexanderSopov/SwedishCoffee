@@ -20,17 +20,45 @@
     	</div>
     {% endfor %}
 -->
-	{% for entry in entries %}
-    	<div class="projectThumb" onclick="window.location='/blog/{{ entry.id }}/';">
-    		<img src="{% static entry.imgUrl %}">
-			<div class ="projectIngress">
-				<h1>
-					{{ entry.headline }}
-				</h1>
-				
-				{{ entry.body_text | safe }}
-				
-			</div>
-    	</div>
-    {% endfor %}
+    <div class="blogPlate">
+        <div class="blogEntry" >
+        {% for entry in entries %}
+            <div class="blogEntryPiece" id="entryThumb" onclick="window.location='/blog/{{ entry.id }}/';">
+                <div class="date">
+                    <p>{{ entry.pub_date }} </p>
+                </div>
+                <div class ="entryHeadline">
+                    <h1>
+                        {{ entry.headline }}
+                    </h1>
+                </div>
+                <div class="entryImg">
+                    <img src="{% static entry.imgUrl %}">
+                </div>
+                <div class="entryText">
+                        {{ entry.body_text|safe}}
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+        <div class="blogInfo">
+            <div><!-- THIS IS AUTHOR PAGE AND ARCHIVE - BASICALLY IT*S A SIDEBAR -->
+                <br><br><br><br>
+                <br><br><br><br>
+                <br><br><br><br>
+                <br><br><br><br>
+                <br><br><br><br>
+            </div>
+            <div>
+                <br><br><br><br>
+                <br><br><br><br>
+                <br><br><br><br>
+                <br><br><br><br>
+                <br><br><br><br>
+                <br><br><br><br>
+                <br><br><br><br>
+                <br><br><br><br>
+            </div>
+        </div>
+    </div>
 {% endblock %}

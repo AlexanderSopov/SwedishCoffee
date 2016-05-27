@@ -3,6 +3,8 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.core.urlresolvers import reverse
 from django.views import generic
 from django.utils import timezone
+from .forms import QuestionForm
+from django import forms
 
 from .models import Choice, Question
 # Create your views here.
@@ -51,7 +53,12 @@ def vote(request, question_id):
 def create(request):
     #render a template
     print("got to create")
-    return render(request, "polls/create.html",{})
+    return render(request, "polls/create.html",{
+        "form":QuestionForm(),
+        "form1":forms.inlineformset_factory(
+            Question, Choice,
+            fields=('choice_text',))
+})
 
 def createPoll(request):
     #render a template
