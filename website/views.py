@@ -53,7 +53,7 @@ def about(request):
 
 def blog(request):
 	blogPage = get_object_or_404(Page, title="Blog")
-	entries = get_list_or_404(Entry.objects.order_by(F('pub_date').desc()), )# page=blogPage.id ) # erase the first hashtag and the closing paranthese to filter for entries who are connected to the blog
+	entries = get_list_or_404(Entry.objects.order_by(F('pub_date').desc()), page=blogPage.id ) # erase the first hashtag and the closing paranthese to filter for entries who are connected to the blog
 	return render(request, "website/blog.html", {**{
 		"entries": entries
 	}, **baseContext} )
