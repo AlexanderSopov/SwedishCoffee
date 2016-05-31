@@ -39,7 +39,7 @@ class Entry(models.Model):
 	body_text = models.TextField() #tinymce_models.HTMLField()
 	pub_date = models.DateField()
 	mod_date = models.DateField()
-	authors = models.ManyToManyField(Author)
+	author = models.ForeignKey(Author, null=True)
 	nr_of_comments = models.IntegerField()
 	imgUrl = models.TextField()
 	def __str__(self):

@@ -5,23 +5,9 @@
 {% block container %}
 	<div class="blogPlate">
 		<div class="blogEntry">
-			<div class="blogEntryPiece">
-				<div class="date">
-					<p>{{ entry.pub_date }} </p>
-				</div>
-				<div class ="entryHeadline">
-					<h1>
-						{{ entry.headline }}
-					</h1>
-				</div>
-				<div class="entryImg">
-					<img src="{% static entry.imgUrl %}">
-				</div>
-				<div class="entryText">
-						{{ entry.body_text|safe}}
-				</div>
-			</div>
-		</div>
+
+            {% include "website/entryPiece.html" %}
+        </div>
 		<div class="blogInfo">
 			<div><!-- THIS IS AUTHOR PAGE AND ARCHIVE - BASICALLY IT*S A SIDEBAR -->
 				<br><br><br><br>

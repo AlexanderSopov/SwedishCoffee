@@ -1,0 +1,21 @@
+
+{% load staticfiles %}
+<div class="blogEntryPiece" ><!--id="entryThumb"-->
+    <div class="entryImg">
+        <img src="{% static entry.imgUrl %}">
+    </div>
+    <div class ="entryHeadline">
+        <h1>
+            <a href="{% url 'website:blogEntry' entry.id%}"> {{ entry.headline }}</a>
+        </h1>
+        <p>
+            Written in {{ entry.pub_date }} by
+            {% if entry.author %} {{ entry.author.name }}
+            {% else %} The Editorial Team
+            {% endif %}
+        </p>
+    </div>
+    <div class="entryText">
+            {{ entry.body_text|safe}}
+    </div>
+</div>

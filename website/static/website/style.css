@@ -129,8 +129,7 @@ nav a{
 }
 .blogEntryPiece{
     margin:0px;
-    padding-top:10px;
-    padding-bottom:10px;
+    padding:20px;
     margin-bottom: 30px;
     width:100%;
     background-color: white;
@@ -162,11 +161,7 @@ nav a{
     flex-wrap:wrap;
 }
 
-.date{
-    width:100%;
-    padding-left:10px;
-    border-bottom: 1px solid black;
-}
+
 
 
 .entryImg{
@@ -179,14 +174,25 @@ nav a{
     width:100%;
 }
 
-.entryHeadline {
-    padding:10px;
+.entryHeadline {;
     width:100%;
     order:1;
 }
+.entryHeadline h1 {
+    margin-top:10px;
+    margin-bottom:10px;
+    font-size: 2.4em;
+}
+
+.entryHeadline p {
+    margin:0px;
+    font-size: .85em;
+}
+
 
 .entryText {
-    padding:10px;
+    font-size: 1.25em;
+    margin-top: 25px;
     text-align: justify;
     width: 100%;
     order:3;

@@ -23,22 +23,7 @@
     <div class="blogPlate">
         <div class="blogEntry" >
         {% for entry in entries %}
-            <div class="blogEntryPiece" id="entryThumb" onclick="window.location='/blog/{{ entry.id }}/';">
-                <div class="entryImg">
-                    <img src="{% static entry.imgUrl %}">
-                </div>
-                <div class ="entryHeadline">
-                    <h1>
-                        {{ entry.headline }}
-                    </h1>
-                </div>
-                <div class="entryInfo">
-                    <p>{{ entry.pub_date }} </p>
-                </div>
-                <div class="entryText">
-                        {{ entry.body_text|safe}}
-                </div>
-            </div>
+            {% include "website/entryPiece.html" %}
         {% endfor %}
         </div>
         <div class="blogInfo">
