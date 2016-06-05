@@ -3,7 +3,8 @@
 
 
 {% block container %}
-	    	<div class="entry">
+        <div class="plate generalPlate">
+	    	<div class="blogEntryPiece single">
 	    		<div class="entryImg">
 	    			<img src="{% static entry.imgUrl %}">
 	    		</div>
@@ -16,6 +17,7 @@
 						{{ entry.body_text|safe}}
 				</div>
 	    	</div>
+        </div>
 	<!---
 	<h1>
 		{{ headline }}

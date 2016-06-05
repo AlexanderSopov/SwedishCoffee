@@ -8,7 +8,8 @@ from .forms import EmailForm
 
 # Base Context for static parts of the website.
 #In other words: parts of the site that don't vary
-baseContext = {"menu": get_list_or_404(MenuItem, ),
+def baseContext():
+	return {"menu": get_list_or_404(MenuItem, ),
 		"logoPath":"website/images/coffe_cup.png",
 		"form": EmailForm()}
 
@@ -28,47 +29,58 @@ def index(request):
 		"page": page,
 		"projects": projects
 	}
-	context.update(baseContext)
+	context.update(baseContext())
 
 	return render(request, "website/index.html", context)
 
 
 def projects(request):
 	projects = get_list_or_404(Projects)
-	return render(request, "website/index.html", {**{
+	context = {
 		"page": {"title":"Projects"},
 		"projects": projects
-	}, **baseContext} )
+	}
+	context.update(baseContext())
+	return render(request, "website/index.html", context)
 
 
 
 def about(request):
 	aboutPage = get_object_or_404(Page, title="About")
 	entry = get_object_or_404(Entry, page=aboutPage.id)
-	return render(request, "website/about.html", {**{
+	context = {
 		"page": aboutPage,
 		"entry": entry
-	}, **baseContext} )
+	}
+	context.update(baseContext())
+	return render(request, "website/about.html", context)
 
 
 def blog(request):
 	blogPage = get_object_or_404(Page, title="Blog")
 	entries = get_list_or_404(Entry.objects.order_by(F('pub_date').desc()), page=blogPage.id ) # erase the first hashtag and the closing paranthese to filter for entries who are connected to the blog
-	return render(request, "website/blog.html", {**{
+	context = {
 		"entries": entries
-	}, **baseContext} )
+	}
+	context.update(baseContext())
+
+	return render(request, "website/blog.html", context)
 
 def blogEntry(request, pk):
 	entry = get_object_or_404(Entry, id=pk)
-	return render(request, "website/blogEntry.html", {**{
+	context={
 			"entry":entry
-		}, **baseContext})
+		}
+	context.update(baseContext())
+	return render(request, "website/blogEntry.html", context)
 
 def projectPage(request, pk):
 	page = get_object_or_404(Page, pk=pk)
 	entries = get_list_or_404(Entry, page=pk)
-	return render(request, "website/projectPage.html", {**{
+	context={
 		"entries":entries,
 		"page":page
-		},**baseContext})
+		}
+	context.update(baseContext())
+	return render(request, "website/projectPage.html", context)
 

@@ -4,22 +4,24 @@
 
 
 {% block container %}
-    {% for entry in entries %}
-	    	<div class="entry">
-	    		
-	    		<div class="entryImg">
-	    			<img src="{% static entry.imgUrl %}">
-	    		</div>
-				<div class ="entryHeadline">
-					<h1>
-						{{ entry.headline }}
-					</h1>
-				</div>
-				
-				<div class="entryText">
-						{{ entry.body_text|safe}}
-				</div>
+	<div class="plate generalPlate">
+	    {% for entry in entries %}
+		    	<div class="blogEntryPiece">
 
-	    	</div>
-    {% endfor %}
+		    		<div class="entryImg">
+		    			<img src="{% static entry.imgUrl %}">
+		    		</div>
+					<div class ="entryHeadline">
+						<h1>
+							{{ entry.headline }}
+						</h1>
+					</div>
+
+					<div class="entryText">
+							{{ entry.body_text|safe}}
+					</div>
+
+		    	</div>
+	    {% endfor %}
+	</div>
 {% endblock %}

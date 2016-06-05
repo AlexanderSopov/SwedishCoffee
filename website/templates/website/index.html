@@ -4,17 +4,24 @@
 
 
 {% block container %}
-    {% for project in projects %}
-	    	<div class="projectThumb" onclick="window.location='/projects/{{ project.page.id }}/';">
-	    		<img src="{% static project.imgUrl %}">
-				<div class ="projectIngress">
-					<h1>
-						{{ project.title }}
-					</h1>
-					<p>
-						{{ project.introduction }}
-					</p>
-				</div>
-	    	</div>
-    {% endfor %}
+	<div class="plate generalPlate">
+		<div class="entry">
+			<div style="width:100%;">
+				<h1 style="text-align: center; font-size: 3em;">Projects</h1><br>
+			</div>
+		    {% for project in projects %}
+			    	<div class="projectThumb" onclick="window.location='/projects/{{ project.page.id }}/';">
+			    		<img src="{% static project.imgUrl %}">
+						<div class ="projectIngress">
+							<h1>
+								{{ project.title }}
+							</h1>
+							<p>
+								{{ project.introduction }}
+							</p>
+						</div>
+			    	</div>
+		    {% endfor %}
+		</div>
+	</div>
 {% endblock %}
