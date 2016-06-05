@@ -31,7 +31,7 @@ body{
     top:0px;
     left: 0px;
     width:100%;
-    background-color: rgb(30,30,30);
+    background-color: rgb(40,40,40);
     height: 120px;
     z-index: 10;
     margin:0px;
@@ -62,14 +62,14 @@ body{
 
 #hamburger svg {
     width: 50px;
-    fill: white;
+    fill: rgb(220,220,220);
   }
 
 
 nav {
     width: 100%;
     height: 200px;
-    background-color:rgb(30,30,30);
+    background-color:rgb(40,40,40);
     position: fixed;
     z-index: 5;
     /* This trasform moves the drawer off canvas. */
@@ -95,7 +95,7 @@ nav li{
 }
 
 nav a{
-    color:white;
+    color:rgb(220,220,220);
     text-decoration: none;
     font-size: 1.5em;
 }
@@ -141,7 +141,7 @@ nav a{
     padding:20px;
     margin-bottom: 30px;
     width:100%;
-    background-color: white;
+    background-color: rgb(240,240,240);
 }
 .single{
     margin-bottom:0px;
@@ -157,14 +157,16 @@ nav a{
 .blogInfo div{
     margin:0px;
     margin-bottom:30px;
-    background-color: white;
+    background-color: rgb(240,240,240);
     width:100%;
 }
 .entry {
-    background-color: rgb(250,250,250);
+    background-color: rgb(240,240,240);
     display:flex;
     flex-wrap:wrap;
+    width:100%;
 }
+
 
 
 
@@ -206,40 +208,30 @@ nav a{
 
 
 .projectThumb{
-    position:relative;
-    top:0px;
-    left:0px;
     width:100%;
-    overflow:hidden;
+    padding:20px;
+    margin:0px;
 }
 
 .projectThumb img{
-    position: absolute;
-    top: -80px;
-    left: -150px;
+    width:100%;
+    margin:0px;
 }
 
 
 .projectIngress{
-    background-color: rgba(40,40,40,0.85);
-    position:absolute;
-    left:0px;
-    bottom:0px;
-    padding-left: 20px;
-    padding-right: 20px;
-    z-index: 3;
-    height: 45%;
-    color:white;
+    background-color: rgb(40,40,40);
+    width:100%;
+    margin:0px;
+    height: auto;
+    padding:20px;
+    color:rgb(220,220,220);
 }
 
 .projectIngress h1 {
-    margin:5px;
-    font-size: 1.5em;
-}
-
-.projectIngress p {
-    margin:5px;
-    font-size: 1em;
+    text-align: center;
+    margin:0px;
+    font-size: 1.3em;
 }
 
 .emailFooter{
@@ -248,7 +240,7 @@ nav a{
     text-align: center;
     height: 200px;
     border-top: 1px solid black;
-    color:white;
+    color:rgb(220,220,220);
     background-color: rgba(50,50,50,0.8);
 }
 
@@ -258,15 +250,15 @@ nav a{
 
 .emailFooter button{
     font-size: 1.2em;
-    width: 10%;
+    width: 22%;
     height:45px;
     margin:0px;
-    margin-left:0.5%;
+    margin-left:1%;
     padding:10px;
 }
 
 .emailFooter input{
-    width: 30%;
+    width: 60%;
     height:45px;
     margin:0px;
     padding:10px;
@@ -275,18 +267,17 @@ nav a{
 
 
 .footer{
-    background-color: rgb(30,30,30);
-    height:60px;
+    background-color: rgb(40,40,40);
+    height:120px;
     width:100%;
-    color:white;
 }
 
 .footer div{
     font-size: 14px;
     color: rgb(180,180,180);
-    max-width: 50%;
+    max-width: 75%;
     position: relative;
-    top:35%;
+    top:30%;
     text-align: center;
     margin:auto;
 }
@@ -295,7 +286,24 @@ nav a{
 
 @media screen and (min-width: 426px){
     .projectThumb{
-        width:50%;
+        width:calc(50% - 30px);
+        padding:0px;
+        margin-right:10px;
+        margin-left:10px;
+    }
+
+    #first{
+        margin-left:20px;
+    }
+
+    #middle{
+        margin-right:20px;
+    }
+
+    #last{
+        margin:0px;
+        padding:20px;
+        width:100%;
     }
     .logo img{
         margin-left:40px;
@@ -303,7 +311,17 @@ nav a{
     .background{
         background: url("images/office(768).jpg");
     }
+    .footer{
+        height:100px;
+    }
 
+    .emailFooter button{
+        width: 20%;
+    }
+
+    .emailFooter input{
+        width: 50%;
+    }
 }
 
 @media screen and (min-width: 769px){
@@ -332,63 +350,47 @@ nav a{
         float:left;
     }
 
-    .projectThumb{
-        width: 33.333%;
-    }
-
-    .projectIngress{
-        position: relative;
-        top:0px;
-        height: 100%;
-        padding-top: 400px;
-        animation-name: moveTextDown;
-        animation-duration: 0.5s;
-        text-align: center;
-        background-color: rgba(0,5,5,0.0);
-    }
-
-
-    .projectIngress h1{
-        margin-top:0px;
-        padding-top: 0px;
-    }
-
-    .projectIngress:hover{
-        cursor:pointer;
-        top:0px;
-        animation-name: moveText;
-        animation-duration: 0.4s;
-        padding-top:200px;
-        background-color: rgba(0,5,5,0.80);
-    }
-
-     .projectThumb img{
-        animation-name:zoomOutImg1;
-        animation-duration: 0.4s;
-        top: -5px;
-        left: -100px;
-        height: calc(100% + 5px);
-    }
-
-    .projectThumb:hover img{
-        animation-name:zoomImg1;
-        animation-duration: 0.5s;
-        top: -40px;
-        left: -150px;
-        height: calc(100% + 40px);
-    }
-
 
     .plate{
         width:75%;
     }
 
+    .footer{
+        height:80px;
+    }
+
+    .footer div{
+        top:40%;
+    }
+
+    .emailFooter button{
+        width: 10%;
+    }
+
+    .emailFooter input{
+        width: 45%;
+    }
 
 }
 
 @media screen and (min-width: 1025px){
     .background{
         background: url("images/office(1440).jpg");
+    }
+
+    .projectThumb{
+        width: calc(33.333% - 27px);
+    }
+
+    #middle{
+        margin-right:10px;
+    }
+
+    #last{
+        width: calc(33.333% - 27px);
+        padding:0px;
+        margin-left:10px;
+        margin-right:20px;
     }
 
 
@@ -420,6 +422,14 @@ nav a{
         top: -10px;
         left: -10px;
         height:calc(110% + 10px);
+    }
+
+    .footer{
+        height:60px;
+    }
+
+    .footer div{
+        top:35%;
     }
 }
 @media screen and (min-width: 1441px){
