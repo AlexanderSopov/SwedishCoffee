@@ -1,0 +1,31 @@
+{% extends "website/base.html" %}
+{% block container %}
+{% load staticfiles %}
+
+
+    <div class="blogPlate plate">
+        <div class="blogEntry" >
+            {% block entry %}
+            {% endblock %}
+        </div>
+        <div class="blogInfo">
+            <div class ="sidebarWidget"><!-- THIS IS AUTHOR PAGE AND ARCHIVE - BASICALLY IT'S A SIDEBAR -->
+                <img src="{% static author.imgUrl %}" class="authorImg" id="sidebarAuthor">
+                <h1>{{ author.name }}</h1>
+                <p> {{ author.bio }} </p>
+            </div>
+            <div class="sidebarWidget" id="sidebarAuthor">
+                <br><br><br><br>
+                <br><br><br><br>
+                <br><br><br><br>
+                <br><br><br><br>
+                <br><br><br><br>
+                <br><br><br><br>
+                <br><br><br><br>
+                <br><br><br><br>
+                <br><br><br><br>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

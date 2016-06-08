@@ -30,6 +30,8 @@ class Projects(models.Model):
 class Author(models.Model):
 	name = models.CharField(max_length=50)
 	email = models.EmailField()
+	bio = models.CharField(max_length=420, null=True)
+	imgUrl = models.TextField()
 	def __str__(self):
 		return self.name
 

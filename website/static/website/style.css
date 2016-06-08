@@ -1,3 +1,9 @@
+/*
+*
+*   GENERAL STYLING
+*
+*/
+
 * {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -19,12 +25,17 @@ body{
     background: url("images/office(425).jpg");
 }
 
-#bufferDiv{
-    height:120px;
-    width:50px;
-    background-color: rgba(0,0,0,0);
-    padding-bottom: 40px;
+.plate{
+    background-color:rgba(200,200,200,0.8);
+    display:flex;
+    flex-wrap: wrap;
+    width:100%;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:150px;
+    margin-bottom:20px;
 }
+
 
 .header{
     position: fixed;
@@ -110,16 +121,6 @@ nav a{
     flex-wrap: wrap;
 }
 
-.plate{
-    background-color:rgba(200,200,200,0.8);
-    display:flex;
-    flex-wrap: wrap;
-    width:100%;
-    margin-left:auto;
-    margin-right:auto;
-    margin-top:10px;
-    margin-bottom:20px;
-}
 
 .blogPlate{
     margin-bottom:20px;
@@ -155,9 +156,14 @@ nav a{
     cursor:pointer;
 }
 
-.blogInfo div{
+.authorImg{
+    width:100%;
+}
+
+.sidebarWidget{
     margin:0px;
     margin-bottom:30px;
+    padding:20px;
     background-color: rgb(240,240,240);
     width:100%;
 }

@@ -1,31 +1,7 @@
-{% extends "website/base.html" %}
+{% extends "website/blogBase.html" %}
 {% load staticfiles %}
 
 
-{% block container %}
-	<div class="blogPlate plate">
-		<div class="blogEntry">
-
-            {% include "website/entryPiece.html" %}
-        </div>
-		<div class="blogInfo">
-			<div><!-- THIS IS AUTHOR PAGE AND ARCHIVE - BASICALLY IT*S A SIDEBAR -->
-				<br><br><br><br>
-				<br><br><br><br>
-				<br><br><br><br>
-				<br><br><br><br>
-				<br><br><br><br>
-			</div>
-			<div>
-				<br><br><br><br>
-				<br><br><br><br>
-				<br><br><br><br>
-				<br><br><br><br>
-				<br><br><br><br>
-				<br><br><br><br>
-				<br><br><br><br>
-				<br><br><br><br>
-			</div>
-		</div>
-	</div>
+{% block entry %}
+        {% include "website/entryPiece.html" %}
 {% endblock %}

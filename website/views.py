@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, get_list_or_404
 from django.http import HttpResponse
-from .models import MenuItem, Projects, Page, Entry, EmailContact
+from .models import MenuItem, Projects, Page, Entry, EmailContact, Author
 from django.db.models import F
 from .forms import EmailForm
 # Create your views here.
@@ -58,9 +58,11 @@ def about(request):
 
 def blog(request):
 	blogPage = get_object_or_404(Page, title="Blog")
+	author = get_object_or_404(Author, name="Swedish Coffee Blog")
 	entries = get_list_or_404(Entry.objects.order_by(F('pub_date').desc()), page=blogPage.id ) # erase the first hashtag and the closing paranthese to filter for entries who are connected to the blog
 	context = {
-		"entries": entries
+		"entries": entries,
+		"author": author
 	}
 	context.update(baseContext())
 
@@ -69,7 +71,8 @@ def blog(request):
 def blogEntry(request, pk):
 	entry = get_object_or_404(Entry, id=pk)
 	context={
-			"entry":entry
+			"entry":entry,
+			"author": entry.author
 		}
 	context.update(baseContext())
 	return render(request, "website/blogEntry.html", context)
