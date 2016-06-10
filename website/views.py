@@ -3,13 +3,21 @@ from django.http import HttpResponse
 from .models import MenuItem, Projects, Page, Entry, EmailContact, Author
 from django.db.models import F
 from .forms import EmailForm
+from django.http import Http404
 # Create your views here.
 
 
 # Base Context for static parts of the website.
 #In other words: parts of the site that don't vary
+
+
 def baseContext():
-	return {"menu": get_list_or_404(MenuItem, ),
+	try:
+		menu = get_list_or_404(MenuItem, )
+	except Http404:
+		menu = [MenuItem(page=Page(title="Error",url='website:index'))]
+
+	return {"menu": menu,
 		"logoPath":"website/images/coffe_cup.png",
 		"form": EmailForm()}
 
@@ -30,7 +38,6 @@ def index(request):
 		"projects": projects
 	}
 	context.update(baseContext())
-
 	return render(request, "website/index.html", context)
 
 
@@ -58,7 +65,10 @@ def about(request):
 
 def blog(request):
 	blogPage = get_object_or_404(Page, title="Blog")
-	author = get_object_or_404(Author, name="Swedish Coffee Blog")
+	try:
+		author = get_object_or_404(Author, name="Swedish Coffee Blog")
+	except Http404:
+		author = Author(name="Swedish Coffeee Blog", bio="Error")
 	entries = get_list_or_404(Entry.objects.order_by(F('pub_date').desc()), page=blogPage.id ) # erase the first hashtag and the closing paranthese to filter for entries who are connected to the blog
 	context = {
 		"entries": entries,
