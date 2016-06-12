@@ -16,7 +16,7 @@ class MenuItem(models.Model):
 		return self.page.__str__()
 
 class Projects(models.Model):
-	imgUrl = models.CharField(max_length=100)
+	imgUrl = models.CharField(max_length=100, null=True)
 	title = models.CharField(max_length=100)
 	introduction = models.TextField()
 	page = models.ForeignKey(Page)
@@ -31,7 +31,7 @@ class Author(models.Model):
 	name = models.CharField(max_length=50)
 	email = models.EmailField()
 	bio = models.CharField(max_length=420, null=True)
-	imgUrl = models.TextField()
+	imgUrl = models.TextField(null=True)
 	def __str__(self):
 		return self.name
 
@@ -43,7 +43,7 @@ class Entry(models.Model):
 	mod_date = models.DateField()
 	author = models.ForeignKey(Author, null=True)
 	nr_of_comments = models.IntegerField()
-	imgUrl = models.TextField()
+	imgUrl = models.TextField(null=True)
 	def __str__(self):
 		return self.headline
 
